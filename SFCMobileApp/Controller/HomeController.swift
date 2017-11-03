@@ -29,15 +29,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.font = UIFont.systemFont(ofSize: 25)
         navigationItem.titleView = titleLabel*/
         
-        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "sfc_logo")
         imageView.image = image
         navigationItem.titleView = imageView
         
-        
-        
+
         //background color
         collectionView?.backgroundColor = UIColor.white
         
@@ -51,8 +49,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func setupNavBarButtons() {
         
         //set up the search bar as a button
-        let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
-        let searchBarButtonItem =  UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        let searchImage = UIImage(named: "search")
+        let searchButtonItem =  UIButton(type: .custom)
+        searchButtonItem.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        searchButtonItem.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        searchButtonItem.setImage(searchImage, for: .normal)
+        
+        //searchButtonItem.frame = CGRect(x: 0, y: 0, width: 16, height: 32)
+        let searchBarButtonItem = UIBarButtonItem(customView: searchButtonItem)
         
         //set up the menu bar as a button
         let menuButton = UIBarButtonItem(image: UIImage(named:"menu")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleSearch))
