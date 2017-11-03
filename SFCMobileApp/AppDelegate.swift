@@ -11,22 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
 
         
-        let layout = UICollectionViewFlowLayout()
-        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
-        
         //color for the navigation bar
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
+  /*      UINavigationBar.appearance().barTintColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
         
-        application.statusBarStyle = .lightContent
+        application.statusBarStyle = .lightContent   */
     
         return true
     }
