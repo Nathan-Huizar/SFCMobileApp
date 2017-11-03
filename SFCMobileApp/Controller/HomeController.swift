@@ -8,43 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
-        return cv
-        
-    }()
-    
-
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(collectionView)
-        
-        
-        //the view of the collection view
-        collectionView.frame = view.frame
-        
         
         //header
-       
         navigationController?.navigationBar.isTranslucent = false
-        //sfc logo view in nav bar
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "sfc_logo")
         imageView.image = image
         navigationItem.titleView = imageView
         
-
-      
-         
-         setupNavBarButtons()
         
+        
+        //background color
+        collectionView?.backgroundColor = UIColor.white
+        
+        collectionView?.register(calendarCell.self,forCellWithReuseIdentifier:"cellID")
+        
+        
+        setupNavBarButtons()
     }
     
     //navigationBarItems(menu and search bar)
@@ -61,7 +47,7 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItems = [menuButton]
         navigationItem.rightBarButtonItems = [searchBarButtonItem]
         
-        }
+    }
     
     func handleMenu() {
         
@@ -73,52 +59,26 @@ class ViewController: UIViewController {
         print(123)
         
     }
-
-}
-
-
-
-extension UIView {
     
-    func anchorToTop(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {
     
-        anchorWithConstantsToTop(top: top, left: left, bottom: bottom, right: right, topConstant : 0, leftConstant : 0, bottomConstant: 0, rightConstant: 0)
-        
+    
+    //number of cells we will be seeing
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
     }
     
-    func anchorWithConstantsToTop(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0) {
+    //returns the cel
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
+        
+        return cell
+    }
     
-    translatesAutoresizingMaskIntoConstraints = false
-        
-        if let top = top{
-            topAnchor.constraint(equalTo: top, constant: topConstant).isActive = true
-        }
-       
-        
-        if let bottom = bottom{
-            bottomAnchor.constraint(equalTo: bottom, constant: bottomConstant).isActive = true
-        }
-        
-        
-        if let left = left{
-            leftAnchor.constraint(equalTo: left, constant: leftConstant).isActive = true
-        }
-        
-        
-        if let right = right{
-            rightAnchor.constraint(equalTo: right, constant: rightConstant).isActive = true
-        }
-        
-        
+    //responsible for the sizing of the cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 225)
+    }
+    
+    
 }
-
-}
-
-
-
-
-
-
-
-
-
