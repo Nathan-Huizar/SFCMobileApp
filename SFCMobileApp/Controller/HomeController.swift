@@ -28,12 +28,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.systemFont(ofSize: 25)
         navigationItem.titleView = titleLabel*/
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "sfc_logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
+//
+//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
+//        imageView.contentMode = .scaleAspectFit
+//        let image = UIImage(named: "sfc_logo")
+//        imageView.image = image
+//        navigationItem.titleView = imageView
         
 
         //background color
