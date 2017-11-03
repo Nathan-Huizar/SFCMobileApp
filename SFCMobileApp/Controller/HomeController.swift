@@ -25,15 +25,14 @@ class ViewController: UIViewController {
         
         view.addSubview(collectionView)
         
+        
         //the view of the collection view
         collectionView.frame = view.frame
         
         
-       /* //header
-        navigationItem.title = "Students First Center"
+        //header
+       
         navigationController?.navigationBar.isTranslucent = false
-        
-        
         //sfc logo view in nav bar
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
         imageView.contentMode = .scaleAspectFit
@@ -44,11 +43,11 @@ class ViewController: UIViewController {
 
       
          
-         setupNavBarButtons() */
+         setupNavBarButtons()
         
     }
     
-  /*  //navigationBarItems(menu and search bar)
+    //navigationBarItems(menu and search bar)
     func setupNavBarButtons() {
         
         //set up the search bar as a button
@@ -74,7 +73,7 @@ class ViewController: UIViewController {
         print(123)
         
     }
-    */
+
 }
 
 
