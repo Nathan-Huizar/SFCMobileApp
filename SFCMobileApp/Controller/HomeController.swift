@@ -8,9 +8,7 @@
 
 import UIKit
 
-class HomeController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    let cellId = "cellId"
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +27,10 @@ class HomeController : UICollectionViewController, UICollectionViewDelegateFlowL
         //background color
         collectionView?.backgroundColor = UIColor.white
         
-        collectionView?.register(WebSliders.self, forCellWithReuseIdentifier: cellId)
-
-
+        collectionView?.register(calendarCell.self,forCellWithReuseIdentifier:"cellID")
+        
         
         setupNavBarButtons()
-        
-        
     }
     
     //navigationBarItems(menu and search bar)
@@ -65,35 +60,25 @@ class HomeController : UICollectionViewController, UICollectionViewDelegateFlowL
         
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! WebSliders
+    
+    
+    //number of cells we will be seeing
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    //returns the cel
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
+        
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    //responsible for the sizing of the cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 250)
     }
+    
     
 }
-
-
-
-
-class WebSliders : UICollectionViewCell {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setUpViews() {
-        backgroundColor = UIColor.red
-        
-    }
-    
-}
-
