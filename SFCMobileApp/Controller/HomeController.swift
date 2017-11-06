@@ -10,6 +10,8 @@ import UIKit
 
 class HomeController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +28,12 @@ class HomeController : UICollectionViewController, UICollectionViewDelegateFlowL
         
         //background color
         collectionView?.backgroundColor = UIColor.white
+        
+        collectionView?.register(WebSliders.self, forCellWithReuseIdentifier: cellId)
 
 
         
         setupNavBarButtons()
-        
         
         
     }
@@ -62,7 +65,35 @@ class HomeController : UICollectionViewController, UICollectionViewDelegateFlowL
         
     }
     
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! WebSliders
+        return cell
+    }
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+}
+
+
+
+
+class WebSliders : UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpViews() {
+        backgroundColor = UIColor.red
+        
+    }
     
 }
 
