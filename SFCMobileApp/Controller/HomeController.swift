@@ -1,14 +1,14 @@
-//
+
 //  ViewController.swift
 //  SFCMobileApp
-//
+
 //  Created by Nathan Huizar on 10/18/17.
 //  Copyright © 2017 Nathan Huizar. All rights reserved.
-//
+
 
 import UIKit
 
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         //background color
         collectionView?.backgroundColor = UIColor.white
-        
-        collectionView?.register(calendarCell.self,forCellWithReuseIdentifier:"cellID")
-        
+
+
         
         setupNavBarButtons()
+        
+        
+        
     }
     
     //navigationBarItems(menu and search bar)
@@ -62,23 +64,5 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     
     
-    //number of cells we will be seeing
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    //returns the cel
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
-        
-        return cell
-    }
-    
-    //responsible for the sizing of the cells
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 225)
-    }
-    
-    
 }
+

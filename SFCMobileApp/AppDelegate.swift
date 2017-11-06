@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let layout = UICollectionViewFlowLayout()
-        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
+        let webSliderController = HomeController(collectionViewLayout : layout)
+        window?.rootViewController = UINavigationController(rootViewController: webSliderController)
         
         //color for the navigation bar
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
