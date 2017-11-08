@@ -15,6 +15,7 @@
 		1A32995A1F98164E006BF4B6 /* SFCMobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3299591F98164E006BF4B6 /* SFCMobileAppTests.swift */; };
 		1A3299651F98164E006BF4B6 /* SFCMobileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3299641F98164E006BF4B6 /* SFCMobileAppUITests.swift */; };
 		1A52044B1FA3C39600F09E33 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A52044A1FA3C39600F09E33 /* CalendarCell.swift */; };
+		5649B7371FB3953200299373 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7361FB3953200299373 /* MenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1A3299641F98164E006BF4B6 /* SFCMobileAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFCMobileAppUITests.swift; sourceTree = "<group>"; };
 		1A3299661F98164E006BF4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A52044A1FA3C39600F09E33 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		5649B7361FB3953200299373 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3299461F98164D006BF4B6 /* HomeController.swift */,
+				5649B7361FB3953200299373 /* MenuController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5649B7371FB3953200299373 /* MenuController.swift in Sources */,
 				1A3299471F98164D006BF4B6 /* HomeController.swift in Sources */,
 				1A52044B1FA3C39600F09E33 /* CalendarCell.swift in Sources */,
 				1A3299451F98164D006BF4B6 /* AppDelegate.swift in Sources */,
