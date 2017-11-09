@@ -10,6 +10,7 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +38,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func setupNavBarButtons() {
         
         //set up the search bar as a button
-        let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: "search3")?.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem =  UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
         
         //set up the menu bar as a button
@@ -49,11 +50,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    //tells the menu button what to do
     func handleMenu() {
         
         
     }
     
+    //tells the search button what to do 
     @objc func handleSearch() {
         
         print(123)
