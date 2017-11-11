@@ -8,12 +8,16 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let headerId = "headerId"
+private let bodyId = "bodyId"
+private let footerId = "footerId"
 
 class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
     var homeController: HomeController?
-
+    
+    let bodyLabels = ["Home", "Check-In", "FAQ", "Understanding MyBill", "About Us", "Settings"]
+    
     lazy var dimView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
@@ -31,7 +35,9 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
         super.viewDidLoad()
         setupCollectionView()
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.register(MenuHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        self.collectionView!.register(MenuBodyCell.self, forCellWithReuseIdentifier: bodyId)
+        self.collectionView?.register(MenuFooterCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
     }
     
     func setupCollectionView(){
@@ -53,14 +59,14 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
             }
             
             let menuHeight = window.frame.height
-            let menuWidth = window.frame.width * 0.7
+            let menuWidth = window.frame.width * 0.75
             
-//            let blurEffect = UIBlurEffect(style: .light)
-//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//            if let cvFrame = collectionView?.frame{
-//                blurEffectView.frame = cvFrame
-//                self.collectionView?.backgroundView = blurEffectView
-//            }
+            let blurEffect = UIBlurEffect(style: .regular)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            if let cvFrame = collectionView?.frame{
+                blurEffectView.frame = cvFrame
+                self.collectionView?.backgroundView = blurEffectView
+            }
             
             dimView.frame = window.frame
             dimView.alpha = 0
@@ -89,22 +95,71 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
     }
     
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    //            return nil
-    //    }
+    @objc func handleLogout(){
+        print("Logout")
+    }
     
+    func handleFooterDirect(socialMedia: Int){
+        switch socialMedia {
+        case 0:
+            print("Facebook")
+        case 1:
+            print("Twitter")
+        case 2:
+            print("Pinterest")
+        case 3:
+            print("Snapchat")
+        default:
+            assert(false, "directing error")
+        }
+    }
+    
+    // Header - Collection View
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: view.frame.height * 0.4)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! MenuHeaderCell
+            header.logoutTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleLogout)))
+            return header
+        case UICollectionElementKindSectionFooter:
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! MenuFooterCell
+            footer.menuController = self
+            return footer
+        default:
+            assert(false, "Unexpected Kind")
+        }
+    }
+    //
+    
+    // Body - Collection View
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 6
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bodyId, for: indexPath) as! MenuBodyCell
+        cell.labelTextView.text = bodyLabels[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: collectionView.frame.width, height: view.frame.height * 0.05)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    //
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        // Total Height MINUS Height of the header pLUS height each body cell TIMES number of body cells
+        let footerHeight = view.frame.height - (view.frame.height * 0.7)
+        return CGSize(width: collectionView.frame.width, height: footerHeight)
     }
     
 }

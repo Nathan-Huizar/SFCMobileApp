@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  SFCMobileApp
 //
-//  Created by Christopher Villanueva on 11/7/17.
+//  Created by Christopher Villanueva on 11/10/17.
 //  Copyright © 2017 Nathan Huizar. All rights reserved.
 //
 
@@ -13,7 +13,6 @@ extension UIColor{
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
 }
-
 
 extension UIView{
     func addConstraintsWithFormat(format: String, views: UIView...){
