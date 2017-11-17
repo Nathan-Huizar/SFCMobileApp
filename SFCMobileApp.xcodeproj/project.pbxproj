@@ -14,8 +14,21 @@
 		1A32994F1F98164D006BF4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32994D1F98164D006BF4B6 /* LaunchScreen.storyboard */; };
 		1A32995A1F98164E006BF4B6 /* SFCMobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3299591F98164E006BF4B6 /* SFCMobileAppTests.swift */; };
 		1A3299651F98164E006BF4B6 /* SFCMobileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3299641F98164E006BF4B6 /* SFCMobileAppUITests.swift */; };
-		1A7EBC4F1FB1344A00B0D490 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EBC4E1FB1344A00B0D490 /* Page.swift */; };
+
+		1A52044B1FA3C39600F09E33 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A52044A1FA3C39600F09E33 /* CalendarCell.swift */; };
+		5649B7371FB3953200299373 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7361FB3953200299373 /* MenuController.swift */; };
+		5649B73B1FB6D98600299373 /* MenuBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B73A1FB6D98600299373 /* MenuBodyCell.swift */; };
+		5649B73D1FB6D9C700299373 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B73C1FB6D9C700299373 /* Extensions.swift */; };
+		5649B73F1FB6D9EA00299373 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B73E1FB6D9EA00299373 /* BaseCell.swift */; };
+		5649B7411FB6DE1D00299373 /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7401FB6DE1D00299373 /* MenuHeaderCell.swift */; };
+		5649B7441FB6F53600299373 /* MenuFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7431FB6F53600299373 /* MenuFooterCell.swift */; };
+		5649B7471FB78F8200299373 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7461FB78F8200299373 /* ProfileImageCell.swift */; };
+		5649B74A1FB79A3800299373 /* SocialMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649B7491FB79A3800299373 /* SocialMediaCell.swift */; };
+    1A7EBC4F1FB1344A00B0D490 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EBC4E1FB1344A00B0D490 /* Page.swift */; };
 		1AADB9891FAFFA900082164C /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AADB9881FAFFA900082164C /* CalendarCell.swift */; };
+
+		
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +62,19 @@
 		1A3299601F98164E006BF4B6 /* SFCMobileAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SFCMobileAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3299641F98164E006BF4B6 /* SFCMobileAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFCMobileAppUITests.swift; sourceTree = "<group>"; };
 		1A3299661F98164E006BF4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A7EBC4E1FB1344A00B0D490 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+
+		1A52044A1FA3C39600F09E33 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		5649B7361FB3953200299373 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		5649B73A1FB6D98600299373 /* MenuBodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBodyCell.swift; sourceTree = "<group>"; };
+		5649B73C1FB6D9C700299373 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5649B73E1FB6D9EA00299373 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		5649B7401FB6DE1D00299373 /* MenuHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderCell.swift; sourceTree = "<group>"; };
+		5649B7431FB6F53600299373 /* MenuFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterCell.swift; sourceTree = "<group>"; };
+		5649B7461FB78F8200299373 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		5649B7491FB79A3800299373 /* SocialMediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaCell.swift; sourceTree = "<group>"; };
+    1A7EBC4E1FB1344A00B0D490 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		1AADB9881FAFFA900082164C /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +132,11 @@
 				1A32994B1F98164D006BF4B6 /* Assets.xcassets */,
 				1A32994D1F98164D006BF4B6 /* LaunchScreen.storyboard */,
 				1A3299501F98164D006BF4B6 /* Info.plist */,
-				1A7EBC4E1FB1344A00B0D490 /* Page.swift */,
+
+				5649B73C1FB6D9C700299373 /* Extensions.swift */,
+        1A7EBC4E1FB1344A00B0D490 /* Page.swift */,
+
+				
 			);
 			path = SFCMobileApp;
 			sourceTree = "<group>";
@@ -134,7 +162,13 @@
 		1A52044C1FA3C48200F09E33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1A3299461F98164D006BF4B6 /* HomeController.swift */,
+
+				5649B7421FB6DE2B00299373 /* Menu */,
+				1A52044A1FA3C39600F09E33 /* CalendarCell.swift */,
+				5649B73E1FB6D9EA00299373 /* BaseCell.swift */,
+        1A3299461F98164D006BF4B6 /* HomeController.swift */,
+
+				
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,9 +176,41 @@
 		1AADB98A1FAFFAA80082164C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AADB9881FAFFA900082164C /* CalendarCell.swift */,
+
+				1A3299461F98164D006BF4B6 /* HomeController.swift */,
+				5649B7361FB3953200299373 /* MenuController.swift */,
+        1AADB9881FAFFA900082164C /* CalendarCell.swift */,
+
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5649B7421FB6DE2B00299373 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5649B7451FB78F2800299373 /* Header */,
+				5649B7481FB79A0500299373 /* Footer */,
+				5649B73A1FB6D98600299373 /* MenuBodyCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		5649B7451FB78F2800299373 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5649B7401FB6DE1D00299373 /* MenuHeaderCell.swift */,
+				5649B7461FB78F8200299373 /* ProfileImageCell.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		5649B7481FB79A0500299373 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				5649B7431FB6F53600299373 /* MenuFooterCell.swift */,
+				5649B7491FB79A3800299373 /* SocialMediaCell.swift */,
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +347,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A7EBC4F1FB1344A00B0D490 /* Page.swift in Sources */,
+
+				5649B7371FB3953200299373 /* MenuController.swift in Sources */,
+				5649B7471FB78F8200299373 /* ProfileImageCell.swift in Sources */,
+				5649B73D1FB6D9C700299373 /* Extensions.swift in Sources */,
+				5649B74A1FB79A3800299373 /* SocialMediaCell.swift in Sources */,
+				5649B73B1FB6D98600299373 /* MenuBodyCell.swift in Sources */,
+				1A3299471F98164D006BF4B6 /* HomeController.swift in Sources */,
+				5649B73F1FB6D9EA00299373 /* BaseCell.swift in Sources */,
+				5649B7411FB6DE1D00299373 /* MenuHeaderCell.swift in Sources */,
+				1A52044B1FA3C39600F09E33 /* CalendarCell.swift in Sources */,
+				5649B7441FB6F53600299373 /* MenuFooterCell.swift in Sources */,
+        1A7EBC4F1FB1344A00B0D490 /* Page.swift in Sources */,
 				1A3299471F98164D006BF4B6 /* HomeController.swift in Sources */,
 				1AADB9891FAFFA900082164C /* CalendarCell.swift in Sources */,
+
+			
 				1A3299451F98164D006BF4B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +530,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = default;
 				INFOPLIST_FILE = SFCMobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SFC.SFCMobileApp;
@@ -465,6 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_ACTIVITY_MODE = "";
 				INFOPLIST_FILE = SFCMobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SFC.SFCMobileApp;

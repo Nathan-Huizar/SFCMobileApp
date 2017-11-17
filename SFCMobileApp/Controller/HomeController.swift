@@ -11,6 +11,13 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
+    lazy var menuController: MenuController = {
+        let layout = UICollectionViewFlowLayout()
+        let controller = MenuController(collectionViewLayout: layout)
+        controller.homeController = self
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,17 +52,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func setupNavBarButtons() {
         
         //set up the search bar as a button
-        let searchImage = UIImage(named: "search")
-        let searchButtonItem =  UIButton(type: .custom)
-        searchButtonItem.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        searchButtonItem.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        searchButtonItem.setImage(searchImage, for: .normal)
-        
+//        let searchImage = UIImage(named: "search")
+       let searchButtonItem =  UIButton(type: .custom)
+//        searchButtonItem.widthAnchor.constraint(equalToConstant: 64).isActive = true
+//        searchButtonItem.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        searchButtonItem.setImage(searchImage, for: .normal)
+//
         //searchButtonItem.frame = CGRect(x: 0, y: 0, width: 16, height: 32)
         let searchBarButtonItem = UIBarButtonItem(customView: searchButtonItem)
         
         //set up the menu bar as a button
-        let menuButton = UIBarButtonItem(image: UIImage(named:"menu")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleSearch))
+        let menuButton = UIBarButtonItem(image: UIImage(named:"menu")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenu))
         
         
         navigationItem.leftBarButtonItems = [menuButton]
@@ -63,10 +70,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    //tells the menu button what to do
-    func handleMenu() {
-        
-        
+
+    @objc func handleMenu() {
+        menuController.showMenu()
+
     }
     
     //tells the search button what to do 
