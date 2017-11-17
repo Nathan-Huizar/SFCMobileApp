@@ -17,6 +17,7 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var homeController: HomeController?
     
     let bodyLabels = ["Home", "Check-In", "FAQ", "Understanding MyBill", "About Us", "Settings"]
+    let bodyIcons = ["home", "checkin", "faq", "mybill", "aboutus", "settings"]
     
     lazy var dimView: UIView = {
         let view = UIView()
@@ -25,9 +26,12 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return view
     }()
     
-    lazy var backgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
+    lazy var backgroundView: UIImageView = {
+        let view = UIImageView()
+    //    view.backgroundColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
+        view.image = UIImage(named: "menu_background")
+        view.layer.masksToBounds = true
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
@@ -60,13 +64,6 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
             
             let menuHeight = window.frame.height
             let menuWidth = window.frame.width * 0.75
-            
-            let blurEffect = UIBlurEffect(style: .regular)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            if let cvFrame = collectionView?.frame{
-                blurEffectView.frame = cvFrame
-                self.collectionView?.backgroundView = blurEffectView
-            }
             
             dimView.frame = window.frame
             dimView.alpha = 0
@@ -143,6 +140,7 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bodyId, for: indexPath) as! MenuBodyCell
         cell.labelTextView.text = bodyLabels[indexPath.item]
+        cell.iconImageView.image = UIImage(named: bodyIcons[indexPath.item])?.withRenderingMode(.alwaysOriginal)
         return cell
     }
     
@@ -153,10 +151,9 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    //
+    // footer
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        
         // Total Height MINUS Height of the header pLUS height each body cell TIMES number of body cells
         let footerHeight = view.frame.height - (view.frame.height * 0.7)
         return CGSize(width: collectionView.frame.width, height: footerHeight)

@@ -12,6 +12,8 @@ private let socialId = "socialId"
 
 class MenuFooterCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let icons = ["facebook", "twitter", "pinterest", "snapchat"]
+    
     lazy var socialMediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -25,9 +27,9 @@ class MenuFooterCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollection
     
     override func setupViews() {
         addSubview(socialMediaCollectionView)
-        socialMediaCollectionView.register(socialMediaCell.self, forCellWithReuseIdentifier: socialId)
+        socialMediaCollectionView.register(SocialMediaCell.self, forCellWithReuseIdentifier: socialId)
         
-        addConstraintsWithFormat(format: "H:|-\(frame.width * 0.1)-[v0]-\(frame.width * 0.1)-|", views: socialMediaCollectionView)
+        addConstraintsWithFormat(format: "H:|-\(frame.width * 0.13)-[v0]-\(frame.width * 0.13)-|", views: socialMediaCollectionView)
         addConstraintsWithFormat(format: "V:[v0(\(frame.width * 0.25))]-0-|", views: socialMediaCollectionView)
     }
     
@@ -37,13 +39,14 @@ class MenuFooterCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: socialId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: socialId, for: indexPath) as! SocialMediaCell
+        cell.iconImageView.image = UIImage(named: icons[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // collection view width = 70% of screen
-        return CGSize(width: (frame.width * 0.7) / 4, height: frame.height * 0.25)
+        return CGSize(width: frame.height * 0.2, height: frame.height * 0.2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,18 +58,4 @@ class MenuFooterCell: BaseCell, UICollectionViewDelegateFlowLayout, UICollection
     }
 }
 
-class socialMediaCell: BaseCell {
-    
-    lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = frame.width / 2
-        imageView.backgroundColor = .blue
-        return imageView
-    }()
-    
-    override func setupViews() {
-        addSubview(iconImageView)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: iconImageView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: iconImageView)
-    }
-}
+

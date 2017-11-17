@@ -13,6 +13,9 @@ class MenuBodyCell: BaseCell {
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -21,7 +24,7 @@ class MenuBodyCell: BaseCell {
         textView.backgroundColor = UIColor(red: 0.0353, green: 0.1843, blue: 0.2667, alpha: 1.0)
         textView.text = "Home"
         textView.textColor = .white
-        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.font = UIFont.systemFont(ofSize: 18)
         textView.isEditable = false
         return textView
     }()
